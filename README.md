@@ -7,7 +7,7 @@ von Tim Dubath und Yannick Ruck
 >
 >aus jeweils zwei der oben genannten.
 >
-##Beipiel:
+## Beipiel:
 ![Gif welches die Funktionsweise zeigt](https://github.com/Eaglestriker/Formelrad2/blob/master/bin/application/funktionsweise.gif "Funktionsweise")
 ***
 *erstellt am 15. November 2019*
