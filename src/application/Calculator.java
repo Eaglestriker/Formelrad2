@@ -63,7 +63,7 @@ public class Calculator {
 		else if(widerstand != 0 && strom != 0) {
 
 			leistung = pAusRundIx2(widerstand, strom);
-			
+			spannung = uAusRundI(widerstand, strom);
 		}
 		
 		
@@ -87,4 +87,8 @@ public class Calculator {
 		return widerstand * (strom * strom);
 	}
 
+	public double uAusRundI(double widerstand, double strom) {
+		System.out.println("Berechnung von der Spannung aus dem Widerstand und der Stromstärke.");
+		return widerstand * strom;
+	}
 }
