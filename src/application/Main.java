@@ -96,10 +96,10 @@ public class Main extends Application {
 			btnBerechnen.setText("Berechnen");
 			root.getChildren().add(btnBerechnen);
 			
-			Button btnreset = new Button();
-			btnreset.relocate(220, 445);
-			btnreset.setText("Reset");
-			root.getChildren().add(btnreset);
+			Button btnReset = new Button();
+			btnReset.relocate(220, 445);
+			btnReset.setText("Reset");
+			root.getChildren().add(btnReset);
 
 			btnBerechnen.setOnAction(e -> {
 				double power = 0.0;
@@ -172,7 +172,7 @@ public class Main extends Application {
 				
 			});
 			
-			btnBerechnen.setOnAction(e -> {
+			btnReset.setOnAction(e -> {
 				
 				txLeistung.setStyle("-fx-text-inner-color: black;");
 				txSpannung.setStyle("-fx-text-inner-color: black;");
@@ -181,11 +181,10 @@ public class Main extends Application {
 				
 				lbwarning.setText("");
 				txLeistung.setText("");
-				
-				
-				
-				
-				
+				txSpannung.setText("");
+				txStrom.setText("");
+				txWiderstand.setText("");
+
 				
 			});
 
