@@ -60,6 +60,12 @@ public class Calculator {
 
 		}
 		
+		else if(widerstand != 0 && strom != 0) {
+
+			leistung = pAusRundIx2(widerstand, strom);
+			
+		}
+		
 		
 	}
 
@@ -74,6 +80,11 @@ public class Calculator {
 	public double pAusUx2durchR(double spannung, double widerstand) {
 		System.out.println("Berechnung von der Leistung aus der Spannung und dem Widerstand.");
 		return (spannung * spannung) / widerstand;
+	}
+	
+	public double pAusRundIx2(double widerstand, double strom) {
+		System.out.println("Berechnung von der Leistung aus dem Widerstand und dem Strom.");
+		return widerstand * (strom * strom);
 	}
 
 }
