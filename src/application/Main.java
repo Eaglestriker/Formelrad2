@@ -103,24 +103,36 @@ public class Main extends Application {
 				double resistence = 0.0;
 				
 				int zaehler = 0;
-				
-				if(txLeistung.getText().isEmpty()==false) {
+
+
+				if (!txLeistung.getText().isEmpty()) {
 					power = Double.parseDouble(txLeistung.getText());
 					zaehler = zaehler + 1;
+				} else {
+					txLeistung.setStyle("-fx-text-inner-color: red;");
 				}
-				if(txSpannung.getText().isEmpty()==false) {
+
+				if (!txSpannung.getText().isEmpty()) {
 					tension = Double.parseDouble(txSpannung.getText());
 					zaehler = zaehler + 1;
+				} else {
+					txSpannung.setStyle("-fx-text-inner-color: red;");
 				}
-				if(txStrom.getText().isEmpty()==false) {
+
+				if (!txStrom.getText().isEmpty()) {
 					current = Double.parseDouble(txStrom.getText());
 					zaehler = zaehler + 1;
+				} else {
+					txStrom.setStyle("-fx-text-inner-color: red;");
 				}
-				if(txWiderstand.getText().isEmpty()==false) {
+
+				if (!txWiderstand.getText().isEmpty()) {
 					resistence = Double.parseDouble(txWiderstand.getText());
 					zaehler = zaehler + 1;
+				} else {
+					txWiderstand.setStyle("-fx-text-inner-color: red;");
 				}
-				
+
 				if (zaehler >= 3) {
 					exceptionHandling(warning);
 				}
