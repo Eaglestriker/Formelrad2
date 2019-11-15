@@ -92,9 +92,14 @@ public class Main extends Application {
 			root.getChildren().add(txWiderstand);
 
 			Button btnBerechnen = new Button();
-			btnBerechnen.relocate(100, 445);
+			btnBerechnen.relocate(110, 445);
 			btnBerechnen.setText("Berechnen");
 			root.getChildren().add(btnBerechnen);
+			
+			Button btnReset = new Button();
+			btnReset.relocate(220, 445);
+			btnReset.setText("Reset");
+			root.getChildren().add(btnReset);
 
 			btnBerechnen.setOnAction(e -> {
 				double power = 0.0;
@@ -164,6 +169,22 @@ public class Main extends Application {
 				txWiderstand.setText(Double.toString(myCalculator.getWiderstand()));
 				
 				
+				
+			});
+			
+			btnReset.setOnAction(e -> {
+				
+				txLeistung.setStyle("-fx-text-inner-color: black;");
+				txSpannung.setStyle("-fx-text-inner-color: black;");
+				txStrom.setStyle("-fx-text-inner-color: black;");
+				txWiderstand.setStyle("-fx-text-inner-color: black;");
+				
+				lbwarning.setText("");
+				txLeistung.setText("");
+				txSpannung.setText("");
+				txStrom.setText("");
+				txWiderstand.setText("");
+
 				
 			});
 
