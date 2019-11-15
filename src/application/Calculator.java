@@ -1,5 +1,7 @@
 package application;
 
+import java.util.logging.Logger;
+
 /**
  * Berechnet das Formelrad
  * 
@@ -11,6 +13,7 @@ public class Calculator {
 	private double spannung;
 	private double strom;
 	private double widerstand;
+	public static Logger logger=Logger.getLogger("global");
 
 	public Calculator(double leistung, double spannung, double strom, double widerstand) {
 		super();
@@ -87,7 +90,7 @@ public class Calculator {
 	}
 
 	/*
-	 * Hier die Methoden mit den Formlen hinzuf�gen
+	 * Hier die Methoden mit den Formlen hinzufuegen
 	 */
 	public double pAusUundI(double spannung, double strom) {
 		System.out.println("Berechnung von der Leistung aus der Spannung und der Stromstärke.");
