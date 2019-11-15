@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 /**
@@ -18,10 +19,27 @@ import javafx.scene.text.Font;
  * @version 13.11.2019
  */
 public class Main extends Application {
+	
+	Label lbwarning = new Label();
+	Pane root = new Pane();
+	
+	
+	public void exceptionHandling(String message) {
+		lbwarning.setText("");
+		lbwarning.setText(message);
+		lbwarning.relocate(25, 480);
+		lbwarning.setFont(Font.font(15));
+		lbwarning.setTextFill(Color.web("red"));
+	}
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Pane root = new Pane();
+			lbwarning.setText("");
+			root.getChildren().add(lbwarning);	
+			primaryStage.setHeight(550);
+			
+			String warning = "Sie haben mehr als zwei Zahlen eingegeben, \n dies wird falsche Resultate hervorbringen!";
 
 			// Creating an image
 			Image image = new Image(getClass().getResourceAsStream("formelradelektronik.gif"));	
@@ -83,18 +101,30 @@ public class Main extends Application {
 				double tension = 0.0;
 				double current = 0.0;
 				double resistence = 0.0;
+				
+				int zaehler = 0;
+				
 				if(txLeistung.getText().isEmpty()==false) {
 					power = Double.parseDouble(txLeistung.getText());
+					zaehler = zaehler + 1;
 				}
 				if(txSpannung.getText().isEmpty()==false) {
 					tension = Double.parseDouble(txSpannung.getText());
+					zaehler = zaehler + 1;
 				}
 				if(txStrom.getText().isEmpty()==false) {
 					current = Double.parseDouble(txStrom.getText());
+					zaehler = zaehler + 1;
 				}
 				if(txWiderstand.getText().isEmpty()==false) {
 					resistence = Double.parseDouble(txWiderstand.getText());
+					zaehler = zaehler + 1;
 				}
+				
+				if (zaehler >= 3) {
+					exceptionHandling(warning);
+				}
+				
 				Calculator myCalculator = new Calculator(
 						power, tension, current, resistence);
 				
