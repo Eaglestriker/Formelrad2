@@ -69,12 +69,15 @@ public class Calculator {
 		else if(leistung != 0 && strom != 0) {
 
 			spannung = uAusPundI(leistung, strom);
+			widerstand = rAusPundI(leistung, strom);
 		}
 
 		else if(leistung != 0 && widerstand != 0) {
 
 			spannung = uAusPundRwurzel(leistung, widerstand);
 		}
+		
+
 	}
 
 	/*
@@ -113,5 +116,10 @@ public class Calculator {
 	public double rAusUundI(double spannung, double widerstand) {
 		System.out.println("Berechnung von dem Widerstand aus der Spannung und der Stromstärke.");
 		return spannung / widerstand;
+	}
+	
+	public double rAusPundI(double leistung, double strom) {
+		System.out.println("Berechnung von dem Widerstand aus der Leistung und der Stromstärke.");
+		return leistung / (strom * strom);
 	}
 }
