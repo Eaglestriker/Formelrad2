@@ -52,31 +52,35 @@ public class Calculator {
 			leistung = pAusUundI(spannung, strom);
 			widerstand = rAusUundI(spannung, strom);
 		}
-		
-		else if(spannung != 0 && widerstand != 0) {
+
+		else if (spannung != 0 && widerstand != 0) {
 
 			leistung = pAusUx2durchR(spannung, widerstand);
-			
 
 		}
-		
-		else if(widerstand != 0 && strom != 0) {
+
+		else if (widerstand != 0 && strom != 0) {
 
 			leistung = pAusRundIx2(widerstand, strom);
 			spannung = uAusRundI(widerstand, strom);
 		}
 
-		else if(leistung != 0 && strom != 0) {
+		else if (leistung != 0 && strom != 0) {
 
 			spannung = uAusPundI(leistung, strom);
 			widerstand = rAusPundI(leistung, strom);
 		}
 
-		else if(leistung != 0 && widerstand != 0) {
+		else if (leistung != 0 && widerstand != 0) {
 
 			spannung = uAusPundRwurzel(leistung, widerstand);
 		}
-		
+
+		else if (spannung != 0 && leistung != 0) {
+
+			widerstand = rAusUundP(spannung, leistung);
+			
+		}
 
 	}
 
@@ -87,12 +91,12 @@ public class Calculator {
 		System.out.println("Berechnung von der Leistung aus der Spannung und der Stromstärke.");
 		return spannung * strom;
 	}
-	
+
 	public double pAusUx2durchR(double spannung, double widerstand) {
 		System.out.println("Berechnung von der Leistung aus der Spannung und dem Widerstand.");
 		return (spannung * spannung) / widerstand;
 	}
-	
+
 	public double pAusRundIx2(double widerstand, double strom) {
 		System.out.println("Berechnung von der Leistung aus dem Widerstand und dem Strom.");
 		return widerstand * (strom * strom);
@@ -112,14 +116,19 @@ public class Calculator {
 		System.out.println("Berechnung von der Spannung aus der Leistung und dem Widerstand.");
 		return Math.sqrt(leistung * widerstand);
 	}
-	
+
 	public double rAusUundI(double spannung, double widerstand) {
 		System.out.println("Berechnung von dem Widerstand aus der Spannung und der Stromstärke.");
 		return spannung / widerstand;
 	}
-	
+
 	public double rAusPundI(double leistung, double strom) {
 		System.out.println("Berechnung von dem Widerstand aus der Leistung und der Stromstärke.");
 		return leistung / (strom * strom);
+	}
+
+	public double rAusUundP(double spannung, double leistung) {
+		System.out.println("Berechnung von dem Widerstand aus der Spannung und der Leistung.");
+		return (spannung * spannung) / leistung;
 	}
 }
